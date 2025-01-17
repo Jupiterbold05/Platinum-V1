@@ -19,7 +19,7 @@ global.website = process.env.GURL || "https://whatsapp.com/channel/0029VaeW5Tw4y
 global.THUMB_IMAGE = process.env.THUMB_IMAGE || process.env.IMAGE || "https://i.imgur.com/gvdQSvi.jpeg";
 global.devs = "2348084644182";
 global.sudo = process.env.SUDO || "2349071978357";
-global.owner = process.env.OWNER_NUMBER || "2348084644182";
+global.owner = process.env.OWNER_NUMBER || "0770811929";
 global.style = process.env.STYLE || "3";
 global.gdbye = process.env.GOODBYE || "false";
 global.wlcm = process.env.WELCOME || "true";
@@ -42,7 +42,7 @@ global.scan = "https://arthur-scanner.onrender.com/";
 
 global.SESSION_ID =
   process.env.SESSION_ID ||
-  ""
+  "eyJub2lzZUtleSI6eyJwcml2YXRlIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoiMkYwVE1TMklsNTZQakRoMHBteE1ya0ZXejZsTVJJNHA4bkk1VFRrN05GWT0ifSwicHVibGljIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoiNGlwRGw2R2M1cWpnWWova1VMeXFEYnBBN29WNitpV0hkc1VqbXgwVDBYRT0ifX0sInBhaXJpbmdFcGhlbWVyYWxLZXlQYWlyIjp7InByaXZhdGUiOnsidHlwZSI6IkJ1ZmZlciIsImRhdGEiOiI0SU5ZUzJ0bTFHdmZGUndlaEJDWkZyWkl2MzFicEJkNzlVc3ZVeVptT1dJPSJ9LCJwdWJsaWMiOnsidHlwZSI6IkJ1ZmZlciIsImRhdGEiOiJkajl0MFZQekV4dExoOTBYa2hZTUJoczNyWFB3NmxFb2IzMlVhYm54V0JnPSJ9fSwic2lnbmVkSWRlbnRpdHlLZXkiOnsicHJpdmF0ZSI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6IkdIM1gzSmtKVFlsMEJQVlBWQ0FuRU14VHIremRlazY0bVgxb3JvQktISDg9In0sInB1YmxpYyI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6InVqVHd1NDZ0YU1tMkI1VnNwMURqc1VCZU0zUmJEZGlVVnIvRWJyeUJqVHM9In19LCJzaWduZWRQcmVLZXkiOnsia2V5UGFpciI6eyJwcml2YXRlIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoiMEtvVGZxTlRYMlg3NXp6ZkVyMk5td1hqdFVJZ1FNV0lUVGZUeFJkanBuRT0ifSwicHVibGljIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoib2lIRnBEei9NWHorN1N5cWhhQkZrcWRWc2UvZVo4YzEyV0ZOb3ZXYUwwZz0ifX0sInNpZ25hdHVyZSI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6IndiK0xvV1p4em9iK01yWG1MRURjYWpnQjE1SzY5TzRzWkQrNkluRkY0elNDR1Z5dE51NlhZd1J5ZGtoelpYUjhtalNlYzczUUY0OUthMGt6QytrUkRRPT0ifSwia2V5SWQiOjF9LCJyZWdpc3RyYXRpb25JZCI6MTEsImFkdlNlY3JldEtleSI6ImNDSGNCYm5ibitWS0ZKRm5ZSzQva2VrR0MwSTVEd1VrUzdhNUgwaUNMMlE9IiwicHJvY2Vzc2VkSGlzdG9yeU1lc3NhZ2VzIjpbeyJrZXkiOnsicmVtb3RlSmlkIjoiNDA3NzA4MTE5MjlAcy53aGF0c2FwcC5uZXQiLCJmcm9tTWUiOnRydWUsImlkIjoiNjRCNDg5MzY3QUYxN0E3NDRCRjcyNTgxMzRDRkU0RDgifSwibWVzc2FnZVRpbWVzdGFtcCI6MTczNzE1MjAwNH1dLCJuZXh0UHJlS2V5SWQiOjMxLCJmaXJzdFVudXBsb2FkZWRQcmVLZXlJZCI6MzEsImFjY291bnRTeW5jQ291bnRlciI6MSwiYWNjb3VudFNldHRpbmdzIjp7InVuYXJjaGl2ZUNoYXRzIjpmYWxzZX0sImRldmljZUlkIjoiamZIdkNFXy1TYjJVbFFtemR2OTRWQSIsInBob25lSWQiOiI5NjE3MzQxOS0wZjUyLTQyMzgtOTAwNy0xODZlNWQ3NGE4NmYiLCJpZGVudGl0eUlkIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoieHNFaW9kNnY4TlZLa2lsVXo2RzVBSkd6cHNJPSJ9LCJyZWdpc3RlcmVkIjp0cnVlLCJiYWNrdXBUb2tlbiI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6Im15MTZZQVAycWVFSGE1Qk5tMjQ3RkNDU0Q0Zz0ifSwicmVnaXN0cmF0aW9uIjp7fSwicGFpcmluZ0NvZGUiOiIxWllCTE1TWSIsIm1lIjp7ImlkIjoiNDA3NzA4MTE5Mjk6MjBAcy53aGF0c2FwcC5uZXQiLCJuYW1lIjoi77y84oGgKOKBoMKw4oGgb+KBoMKw4oGgKeKBoO+8jyJ9LCJhY2NvdW50Ijp7ImRldGFpbHMiOiJDTFNoNVBRRUVQT3JxN3dHR0FFZ0FDZ0EiLCJhY2NvdW50U2lnbmF0dXJlS2V5IjoiSVdSem5vNGJyY21pV0VGc1VGYk5qbnlLcDh6NUl2elFUWWdsSVRuTzBoWT0iLCJhY2NvdW50U2lnbmF0dXJlIjoiTURZWkpyTHpYWFJyZHpHTTczRS9VTi8wZ3ZpQmVmVXE1MWVGQlpSUk5nak5MdEczUit6MFQ5VFNmbkFldHhHUkdoaE5UN2IwQWtGeWRoWDFORGdpQ2c9PSIsImRldmljZVNpZ25hdHVyZSI6IkZZR1Z5ZkJmTW5zaUMyU0Y1M2pOakc2bWdaQUxETmhCZmhuUGlxSGc2NDhITUF6QTR5T3dKMG9KRGtLM2hnZjBLYVpoaHBSLzNocFRWMkdENUd3eEFnPT0ifSwic2lnbmFsSWRlbnRpdGllcyI6W3siaWRlbnRpZmllciI6eyJuYW1lIjoiNDA3NzA4MTE5Mjk6MjBAcy53aGF0c2FwcC5uZXQiLCJkZXZpY2VJZCI6MH0sImlkZW50aWZpZXJLZXkiOnsidHlwZSI6IkJ1ZmZlciIsImRhdGEiOiJCU0ZrYzU2T0c2M0pvbGhCYkZCV3pZNThpcWZNK1NMODBFMklKU0U1enRJVyJ9fV0sInBsYXRmb3JtIjoiYW5kcm9pZCIsImxhc3RBY2NvdW50U3luY1RpbWVzdGFtcCI6MTczNzE1MjAwMCwibXlBcHBTdGF0ZUtleUlkIjoiQUFBQUFCTm0ifQ=="
 module.exports = {
   menu: process.env.MENU || "2",
   HANDLERS: process.env.PREFIX || "+",
@@ -52,7 +52,7 @@ module.exports = {
   author: process.env.PACK_AUTHER || "ąҍօѵҽ ąӀӀ ☠️👑🌍",
   packname: process.env.PACK_NAME || "ąҍօѵҽ ąӀӀ ☠️👑🌍",
   botname: process.env.BOT_NAME || "Ͳհҽ օղҽ ąҍօѵҽ ąӀӀ ☠️👑🌍",
-  ownername: process.env.OWNER_NAME || "ᴀʙᴏᴠᴇ ᴀʟʟ ☠️👑🌍",
+  ownername: process.env.OWNER_NAME || "ANONIM",
   errorChat: process.env.ERROR_CHAT || "",
   KOYEB_API: process.env.KOYEB_API || "false",
   REMOVE_BG_KEY: process.env.REMOVE_BG_KEY || "",
@@ -64,7 +64,7 @@ module.exports = {
   HEROKU: process.env.HEROKU_APP_NAME && process.env.HEROKU_API_KEY,
   aitts_Voice_Id: process.env.AITTS_ID || "37",
   ELEVENLAB_API_KEY: process.env.ELEVENLAB_API_KEY || "",
-  WORKTYPE: process.env.WORKTYPE || process.env.MODE || "private",
+  WORKTYPE: process.env.WORKTYPE || process.env.MODE || "public",
   LANG: (process.env.THEME || "PLATINUM").toUpperCase(),
 };
 global.rank = "updated";
