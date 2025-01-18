@@ -43,55 +43,7 @@ smd({ on: "quoted" }, async (message, text) => {
     console.log(e);
   }
 });
-smd(
-  {
-    pattern: "store", // Updated trigger command
-    desc: "Save and forward a message to the user",
-    category: "whatsapp",
-    filename: __filename,
-    use: "< reply to a message >",
-  },
-  async (message) => {
-    try {
-      // Check if the user is replying to a message
-      let repliedMessage = message.reply_message ? message.reply_message : false;
-      if (repliedMessage) {
-        // Forward the replied message to the user
-        await message.bot.forwardOrBroadCast(message.user, repliedMessage, {
-          quoted: { key: repliedMessage.key, message: repliedMessage.message },
-        });
-      } else {
-        // Prompt the user to reply to a message
-        await message.send("*Please reply to a message to save it.*");
-      }
-    } catch (e) {
-      // Handle errors
-      await message.error(`${e}\n\ncommand : #(Message Saver)`, e, false);
-    }
-  }
-);
 
-// Regex to detect synonyms for the new functionality
-const regexSaveMessage = new RegExp(
-  `\\b(?:${["keep", "store", "safe", "saveMessage"].join("|")})\\b`,
-  "i"
-);
-
-// Automatically forward and save quoted messages if text matches the regex
-smd({ on: "quoted" }, async (message, text) => {
-  try {
-    let repliedMessage = message.reply_message ? message.reply_message : false;
-    if (repliedMessage && regexSaveMessage.test(text.toLowerCase())) {
-      await message.bot.forwardOrBroadCast(
-        message.fromMe ? message.user : message.from,
-        repliedMessage,
-        { quoted: { key: repliedMessage.key, message: repliedMessage.message } }
-      );
-    }
-  } catch (e) {
-    console.log(e);
-  }
-});
 
 global.waPresence =
   process.env.WAPRESENCE && process.env.WAPRESENCE === "online"
