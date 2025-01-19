@@ -1,4 +1,77 @@
 const { smd } = require("../lib");
+smd({
+  pattern: 'fwd',
+  fromMe: true,
+  desc: 'Forward replied message to your DM',
+  category: 'whatsapp',
+  filename: __filename,
+  use: '< reply to a message >',
+}, async (message) => {
+  try {
+    // Check if the user is replying to a message
+    let repliedMessage = message.reply_message ? message.reply_message : false;
+    if (repliedMessage) {
+      // Determine target: if the message is from the bot owner or another user
+      const target = message.fromMe ? message.user : message.from;
+      
+      // Forward the replied message to the user's DM
+      await message.bot.forwardOrBroadCast(target, repliedMessage, {
+        quoted: { key: repliedMessage.key, message: repliedMessage.message },
+      });
+    } else {
+      // Prompt the user to reply to a message if no reply is found
+      await message.send('*Please reply to a message to forward it.*');
+    }
+  } catch (e) {
+    // Handle errors
+    await message.error(`${e}\n\ncommand : #(Forward Replied Message)`, e, false);
+  }
+});
+
+// Regex to detect 'keep' for forwarding functionality
+const regexKeepMessage = new RegExp(
+  `\\bkeep\\b`, // Trigger on the word 'keep'
+  "i"
+);
+
+// Automatically forward and save quoted messages if text matches the regex
+smd({ on: 'quoted' }, async (message, text) => {
+  try {
+    // Prevent triggering in groups by default, but allow forwarding to DM for "keep"
+    if (message.isGroup) {
+      // Check if the message contains 'keep' and forward it to the DM
+      if (regexKeepMessage.test(text.toLowerCase()) && message.fromMe) {
+        let repliedMessage = message.reply_message ? message.reply_message : false;
+        if (repliedMessage) {
+          // Forward the replied message to the bot owner's DM
+          const target = message.fromMe ? message.user : message.from;
+          await message.bot.forwardOrBroadCast(
+            target,
+            repliedMessage,
+            { quoted: { key: repliedMessage.key, message: repliedMessage.message } }
+          );
+        }
+      }
+      return;
+    }
+
+    // Handle private chats (only if the message is from the bot owner and contains 'keep')
+    if (message.fromMe && regexKeepMessage.test(text.toLowerCase())) {
+      let repliedMessage = message.reply_message ? message.reply_message : false;
+      if (repliedMessage) {
+        // Forward the replied message to the bot owner's DM
+        const target = message.fromMe ? message.user : message.from;
+        await message.bot.forwardOrBroadCast(
+          target,
+          repliedMessage,
+          { quoted: { key: repliedMessage.key, message: repliedMessage.message } }
+        );
+      }
+    }
+  } catch (e) {
+    console.log(e);
+  }
+});
 smd(
   {
     pattern: "save",
