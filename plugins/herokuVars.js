@@ -238,50 +238,48 @@ heroku.setvar = async (_0x4d36a5, _0x4c84a1) => {
     };
   }
 };
-smd(
+ smd(
   {
-    cmdname: "getsudo",
-    alias: ["mods", "gsudo"],
-    info: "get sudo users list.",
+    pattern: "getsudo",
+    alias: ["gsudo", "listsudo"],
     fromMe: true,
-    type: "tools",
+    desc: "Get the list of sudo users",
+    category: "tools",
     filename: __filename,
   },
-  async (_0xf78029) => {
-    let _0x204a80 = global.sudo
-      .split(",")
-      .filter((_0x4a441f) => _0x4a441f && _0x4a441f !== "null")
-      .map((_0x471040) => _0x471040.trim());
-    let _0x10bccf = _0x204a80
-      .map(
-        (_0x247f5e, _0xc999b3) =>
-          "  " + (_0xc999b3 + 1) + " 〄 @" + _0x247f5e + "\n\n"
-      )
-      .join("");
-    let _0x1babe2 = [
-      _0xf78029.sender,
-      ..._0x204a80.map((_0xb3507b) => _0xb3507b + "@s.whatsapp.net"),
-    ];
-    if (!_0x10bccf || !_0x204a80 || !_0x204a80[0]) {
-      return await _0xf78029.reply(
-        "*There's no mods/sudo added for your bot!*"
+  async (_0x485e4f) => {
+    try {
+      // Check if the sudo list is empty
+      if (!global.sudo || global.sudo.trim() === "") {
+        return await _0x485e4f.reply("*The Sudo list is currently empty!*");
+      }
+
+      // Split the sudo list and remove empty entries
+      let sudoUsers = global.sudo.split(",").filter((user) => user.trim() !== "");
+
+      // Format phone numbers into international format (without @s.whatsapp.net)
+      const formatPhoneNumber = (number) => {
+        return `+${number.trim()}`;
+      };
+
+      // Retrieve the names and formatted phone numbers
+      let formattedList = await Promise.all(
+        sudoUsers.map(async (user, index) => {
+          let senderName = await _0x485e4f.bot.getName(user.trim());
+          console.log(`Fetched name for ${user.trim()}: ${senderName}`);  // Debugging log
+          senderName = senderName || `User${index + 1}`;  // Fallback to "UserX" if name is unavailable
+          let formattedPhoneNumber = formatPhoneNumber(user.trim());
+          return `${index + 1}. ${senderName} (${formattedPhoneNumber})`;
+        })
       );
+
+      // Join the list and send as a reply
+      await _0x485e4f.reply(
+        `*🔧 Here is the current Sudo list 🔧:*\n\n${formattedList.join("\n")}`
+      );
+    } catch (error) {
+      await _0x485e4f.error(`An error occurred:\n\n${error}\n\nCommand: getsudo`);
     }
-    let _0x762894 = (
-      "\n   👤 *" +
-      (Config.botname ? Config.botname : "QUEEN_ANITA-V2") +
-      " MODS* 👤\n   \n" +
-      _0x10bccf
-    ).trim();
-    return await _0xf78029.reply(
-      "https://telegra.ph/file/5fd51597b0270b8cff15b.png",
-      {
-        caption: _0x762894,
-        mentions: _0x1babe2,
-      },
-      "img",
-      _0xf78029
-    );
   }
 );
 smd(
