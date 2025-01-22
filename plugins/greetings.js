@@ -59,33 +59,33 @@ smd({
 });
 
 smd({
-  pattern: "goodbye", // Trigger for the goodbye command
+  pattern: "depart", // Trigger for the goodbye command
   desc: "Goodbye members.",
   category: "group",
   filename: __filename
 }, async (message, match) => {
   try {
     // Retrieve the saved goodbye message for the group
-    const goodbye = await getMessage(message.jid, 'goodbye', message.id);
+    const goodbye = await sendWelcome(message.jid, 'depart', message.id);
 
     // If no argument and no goodbye message exists, show an example
-    if (!match && !goodbye) {
-      return await message.reply('*Example: goodbye Bye &mention*');
+    if (!match && !depart) {
+      return await message.reply('*Example: depart Bye &mention*');
     }
 
     // Handle toggling the goodbye feature on/off
     if (match === 'on' || match === 'off') {
-      if (!goodbye) {
-        return await message.reply('*Example: goodbye Bye &mention*');
+      if (!depart) {
+        return await message.reply('*Example: depart Bye &mention*');
       }
-      await enableGreetings(message.jid, 'goodbye', match, message.id);
+      await sendWelcome(message.jid, 'goodbye', match, message.id);
       return await message.reply(`_Goodbye ${match === 'on' ? 'Enabled' : 'Disabled'}_`);
     }
 
     // Handle deleting the goodbye message
     if (match === 'delete') {
-      await deleteMessage(message.jid, 'goodbye', message.id);
-      clearGreetings(message.jid, 'goodbye', message.id);
+      await sendWelcome(message.jid, 'goodbye', message.id);
+      sendWelcome(message.jid, 'goodbye', message.id);
       return await message.reply('_Goodbye deleted_');
     }
 
@@ -93,7 +93,7 @@ smd({
     const goodbyeMessage = match.replace(/&mention/gi, `@${message.sender.split("@")[0]}`);
 
     // Save the new goodbye message
-    await setMessage(message.jid, 'goodbye', goodbyeMessage, true, message.id);
+    await sendWelcome(message.jid, 'goodbye', goodbyeMessage, true, message.id);
 
     // Generate and preview the saved message
     const { msg, options } = await greetingsPreview(message, 'goodbye', message.id);
