@@ -22,7 +22,7 @@ global.sudo = process.env.SUDO || "2349071978357";
 global.owner = process.env.OWNER_NUMBER || "2348084644182";
 global.style = process.env.STYLE || "3";
 global.gdbye = process.env.GOODBYE || "false";
-global.wlcm = process.env.WELCOME || "true";
+global.wlcm = process.env.WELCOME || "false";
 global.warncount = process.env.WARN_COUNT || 3;
 global.disablepm = process.env.DISABLE_PM || "false";
 global.disablegroup = process.env.DISABLE_GROUPS || "false",
@@ -40,9 +40,8 @@ global.read_status_from = process.env.READ_STATUS_FROM || "";
 global.api_smd = "https://api-smd-1.vercel.app";
 global.scan = "https://arthur-scanner.onrender.com/";
 
-global.SESSION_ID =
-  process.env.SESSION_ID ||
-  ""
+global.SESSION_ID = process.env.SESSION_ID || ""
+
 module.exports = {
   menu: process.env.MENU || "2",
   HANDLERS: process.env.PREFIX || "+",
