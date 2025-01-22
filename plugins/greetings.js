@@ -4,6 +4,7 @@ const {
   setMessage,
   deleteMessage,
   getMessage,
+  sendWelcome,
   greetingsPreview,
   clearGreetings
 } = require('../lib/');
