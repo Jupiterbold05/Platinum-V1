@@ -1,15 +1,15 @@
 {
   "name": "Platinum-V1",
-  "version": "2.5.0",
+  "version": "3.5.0",
   "description": "Multi device whatsapp bot by JUPITERBOLD05 ....",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start index.js --deep-monitoring --attach --name platinum-v1",
+    "start": "pm2 start . --attach --name platinum-v1",
+    "docker": "pm2-runtime start . --name platinum-v1",
     "stop": "pm2 stop platinum-v1",
-    "restart": "pm2 restart platinum-v1",
     "heroku-postbuild": "git clone https://github.com/Jupiterbold05/Platinum-V1.git temp && mv temp/.git .git && rm -rf temp && npx puppeteer@latest install --y",
     "fis-heroku-postbuild": "git clone https://github.com/Jupiterbold05/Platinum-V1.git temp1 && rsync -av temp1/* ./ && rsync -av temp1/.* ./ && rm -rf temp1 && npm i && npx puppeteer@latest install",
-    "postinstall": "npx puppeteer@latest install --y"
+    "postinstall": "node -e \"try { require('sharp') } catch (e) { process.exit(1); }\" || yarn add --ignore-engines sharp@0.33.5"
   },
   "author": "JUPITERBOLD05",
   "license": "Apache-2.0",
