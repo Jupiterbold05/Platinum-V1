@@ -47,7 +47,7 @@
     "mongoose": "^6.2.1",
     "mumaker": "^2.0.0",
     "node-cron": "^3.0.0",
-    "node-fetch": "2.6.9",
+    "node-fetch": "2.7.0",
     "node-webpmux": "^3.1.4",
     "pastebin-js": "^1.0.0",
     "pdfkit": "^0.13.0",
